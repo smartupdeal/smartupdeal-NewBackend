@@ -15,7 +15,8 @@ const checkAuth = async req => {
     }
 
     return token;
-  } catch (error) {
+  } 
+  catch (error) {
     return null;
   }
 };

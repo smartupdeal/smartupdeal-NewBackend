@@ -68,6 +68,8 @@ app.use(routes);
 //   });
 // }
 
+console.log("ENV data : " , process.env.JWT_SECRET);
+
 app.listen(port, () => {
   console.log("http://localhost:3000");
 });

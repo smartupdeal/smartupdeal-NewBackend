@@ -5,6 +5,11 @@ const router = express.Router();
 const Address = require('../../models/address');
 const auth = require('../../middleware/auth');
 
+router.get("/test",  (req,res)=> {
+  console.log("//======= API Got Hit ======//");
+  return res.status(200).send("Test Hit Successfully");
+})
+
 router.post('/add', auth, (req, res) => {
   const user = req.user;
 

@@ -1,3 +1,5 @@
+require("dotenv").config({path : __dirname+"/../.env"})
+//console.log("lol : ", process.env.JWT_SECRET);
 module.exports = {
   app: {
     name: 'Mern Ecommerce',
