@@ -100,6 +100,7 @@ router.post('/addEvent', (req, res) => {
 
 // fetch store brands api
 router.get('/eventList', async (req, res) => {
+  console.log("//====================== Event List ==================//");
   try {
     const events = await Event.find({
       isActive: true

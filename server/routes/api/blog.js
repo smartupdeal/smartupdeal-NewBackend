@@ -32,6 +32,7 @@ router.post('/addBlog', (req, res) => {
 });
 
 router.get('/blogList', async (req, res) => {
+  console.log("//======================== blogList ======================//");
   try {
     const blogs = await Blog.find({
       isActive: true

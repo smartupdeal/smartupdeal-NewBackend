@@ -140,6 +140,7 @@ router.put("/education", auth, async (req, res) => {
 // get all users
 
 router.get('/userList', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+  console.log("//====================== USerLIST API =========================//");
   try {
     let userList = [];
 

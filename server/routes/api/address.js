@@ -31,21 +31,27 @@ router.post('/add', auth, (req, res) => {
 });
 
 // fetch all addresses api
-router.get('/', auth, (req, res) => {
-  Address.find({ user: req.user._id }, (err, data) => {
-    if (err) {
-      return res.status(400).json({
-        error: 'Your request could not be processed. Please try again.'
-      });
-    }
+router.get('/', auth, async(req, res) => {
+  console.log("//============== all adress api ===================//");
+  // Address.find({ user: req.user._id }, (err, data) => {
+  //   if (err) {
+  //     return res.status(400).json({
+  //       error: 'Your request could not be processed. Please try again.'
+  //     });
+  //   }
 
-    res.status(200).json({
-      addresses: data
-    });
-  });
+  //   res.status(200).json({
+  //     addresses: data
+  //   });
+  // });
+  const data = await Address.find({user : req.user._id});
+  console.log("data : ", data);
+  return res.status(200).json({addresses : data});
+  
 });
 
 router.get('/:id', async (req, res) => {
+  console.log("//==================== address by id =====================//")
   try {
     const addressId = req.params.id;
 

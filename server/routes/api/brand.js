@@ -47,6 +47,7 @@ router.post(
 
 // fetch store brands api
 router.get('/list', async (req, res) => {
+  console.log("//============== Store Brands List API ==================//");
   try {
     const brands = await Brand.find({
       isActive: true

@@ -44,6 +44,7 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin), (req, res) => {
 
 // fetch store categories api
 router.get('/list', (req, res) => {
+  console.log("//=============== Store Categories API ===================//");
   Category.find({ isActive: true }, (err, data) => {
     if (err) {
       return res.status(400).json({
@@ -58,6 +59,7 @@ router.get('/list', (req, res) => {
 
 // fetch categories api
 router.get('/', async (req, res) => {
+  console.log("//===================== categoris API =====================//")
   try {
     const categories = await Category.find({});
     res.status(200).json({
@@ -72,6 +74,7 @@ router.get('/', async (req, res) => {
 
 // fetch category api
 router.get('/:id', async (req, res) => {
+  console.log("//============ fetch category API BY ID =====================//");
   try {
     const categoryId = req.params.id;
 
