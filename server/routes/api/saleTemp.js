@@ -8,6 +8,7 @@ const role = require('../../middleware/role');
 
 // add saleTemp api
 router.post('/add', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+  console.log("//============================ saleTemp ============================//");
   try {
     const name = req.body.name;
     const description = req.body.description;
@@ -55,7 +56,9 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant),
 });
 
 // fetch saleTemps api
-router.get('/', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+//router.get('/', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+router.get('/', async (req, res) => {
+  console.log("//=========================== SaleTemps aPI ==========================//")
   try {
     let saleTemps = [];
 
@@ -96,6 +99,7 @@ router.get('/', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), asy
 
 // fetch saleTemps api
 router.get('/category/:slug', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+  console.log("//========================== Category /:slug API ===============================//");
   try {
     let saleTemps = [];
     
@@ -161,6 +165,7 @@ router.put('/:id', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), 
 
 // fetch saleTem slug api
 router.get('/item/:slug', async (req, res) => {
+  console.log("//============================= item/slug ===========================//")
   try {
     const slug = req.params.slug;
 
