@@ -19,6 +19,7 @@ const upload = multer({ storage });
 
 // fetch product slug api
 router.get('/item/:slug', async (req, res) => {
+  console.log("//================ Fetch Product Slug api =======================//");
   try {
     const slug = req.params.slug;
     const productDoc = await Product.findOne({ slug, isActive: true }).populate({
@@ -44,6 +45,7 @@ router.get('/item/:slug', async (req, res) => {
 
 // fetch  product name search api
 router.get('/list/search/:name', async (req, res) => {
+  console.log("//================ Fetch Product By Name Search api =======================//");
   try {
     const name = req.params.name;
 
@@ -70,6 +72,7 @@ router.get('/list/search/:name', async (req, res) => {
 
 // fetch store products by advancedFilters api
 router.post('/list', async (req, res) => {
+  console.log("//================ Fetch Store Product By Advanced Filters api =======================//");
   try {
     let { sortOrder, rating, max, min, category, pageNumber: page = 1 } = req.body;
 
@@ -407,6 +410,7 @@ router.post('/listOld', async (req, res) => {
 
 // fetch store products by brand api
 router.get('/list/brand/:slug', async (req, res) => {
+  console.log("//================ Fetch Store Product By brand api =======================//");
   try {
     const slug = req.params.slug;
 
@@ -495,6 +499,7 @@ router.get('/list/brand/:slug', async (req, res) => {
 });
 
 router.get('/list/select', auth, async (req, res) => {
+  console.log("//================ list/Select API =======================//");
   try {
     const products = await Product.find({}, 'name');
 
@@ -598,6 +603,7 @@ router.post('/add', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant),
 
 // fetch products api
 router.get('/', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+  console.log("//================ Fetch Products api =======================//");
   try {
     let products = [];
 
@@ -639,6 +645,7 @@ router.get('/', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), asy
 
 // fetch product api
 router.get('/:id', auth, role.checkRole(role.ROLES.Admin, role.ROLES.Merchant), async (req, res) => {
+  console.log("//================ Fetch Products By Checkroles api =======================//");
   try {
     const productId = req.params.id;
 
